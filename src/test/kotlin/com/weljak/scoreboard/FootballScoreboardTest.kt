@@ -1,10 +1,10 @@
-package com.weljak.football.scoreboard
+package com.weljak.scoreboard
 
-import com.weljak.football.scoreboard.exception.AmbiguousMatchDetailsException
-import com.weljak.football.scoreboard.exception.GameAlreadyStartedException
-import com.weljak.football.scoreboard.exception.SameTeamNameException
-import com.weljak.football.scoreboard.exception.TeamCurrentlyPlayingException
-import com.weljak.football.scoreboard.internal.Utils
+import com.weljak.scoreboard.exception.AmbiguousMatchDetailsException
+import com.weljak.scoreboard.exception.GameAlreadyStartedException
+import com.weljak.scoreboard.exception.SameTeamNameException
+import com.weljak.scoreboard.exception.TeamCurrentlyPlayingException
+import com.weljak.scoreboard.internal.Utils
 import org.junit.jupiter.api.BeforeEach
 import org.junit.jupiter.api.Test
 import org.junit.jupiter.api.assertThrows

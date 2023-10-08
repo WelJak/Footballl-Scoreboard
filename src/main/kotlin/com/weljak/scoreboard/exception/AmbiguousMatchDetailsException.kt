@@ -1,3 +1,3 @@
-package com.weljak.football.scoreboard.exception
+package com.weljak.scoreboard.exception
 
 class AmbiguousMatchDetailsException(message: String) : RuntimeException(message)

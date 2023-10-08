@@ -1,4 +1,4 @@
-package com.weljak.football.scoreboard.model
+package com.weljak.scoreboard.model
 
 data class GameDetails(
     val homeTeam: String,

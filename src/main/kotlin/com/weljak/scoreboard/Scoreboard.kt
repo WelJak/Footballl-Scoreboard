@@ -1,6 +1,6 @@
-package com.weljak.football.scoreboard
+package com.weljak.scoreboard
 
-import com.weljak.football.scoreboard.model.GameDetails
+import com.weljak.scoreboard.model.GameDetails
 
 sealed interface Scoreboard {
     fun startGame(team1: String, team2: String)

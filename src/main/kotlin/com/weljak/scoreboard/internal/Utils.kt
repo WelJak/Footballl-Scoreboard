@@ -1,4 +1,4 @@
-package com.weljak.football.scoreboard.internal
+package com.weljak.scoreboard.internal
 
 object Utils {
     private const val WHITESPACE_DELIMITER = "\\s"

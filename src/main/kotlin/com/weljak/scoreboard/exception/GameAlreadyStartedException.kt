@@ -1,3 +1,3 @@
-package com.weljak.football.scoreboard.exception
+package com.weljak.scoreboard.exception
 
 class GameAlreadyStartedException(message: String) : RuntimeException(message)
