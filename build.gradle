@@ -16,6 +16,10 @@ publishing {
     }
 }
 
+java {
+    withSourcesJar()
+}
+
 repositories {
     mavenCentral()
 }
