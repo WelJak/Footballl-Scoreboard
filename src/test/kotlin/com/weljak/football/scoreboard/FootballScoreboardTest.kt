@@ -11,7 +11,6 @@ import org.junit.jupiter.api.assertThrows
 import kotlin.test.assertEquals
 import kotlin.test.assertNotNull
 import kotlin.test.assertNull
-import kotlin.test.assertTrue
 
 class FootballScoreboardTest {
     private val scoreboard = FootballScoreboard()
@@ -27,8 +26,10 @@ class FootballScoreboardTest {
         val homeTeamName = "Team1"
         val awayTeamName = "Team2"
 
+        //when
+        scoreboard.startGame(homeTeamName, awayTeamName)
+
         //then
-        assertTrue { scoreboard.startGame(homeTeamName, awayTeamName) }
         val gameDetails = scoreboard.getScore(homeTeamName, awayTeamName)
         assertNotNull(gameDetails)
         assertEquals(homeTeamName, gameDetails.homeTeam)
@@ -57,7 +58,7 @@ class FootballScoreboardTest {
         val awayTeamName = "team2"
 
         //then
-        assertTrue { scoreboard.startGame(homeTeamName, awayTeamName) }
+        scoreboard.startGame(homeTeamName, awayTeamName)
         assertThrows<GameAlreadyStartedException> { scoreboard.startGame(awayTeamName, homeTeamName) }
     }
 
@@ -93,6 +94,7 @@ class FootballScoreboardTest {
 
         //then
         val gameDetails = scoreboard.getScore(homeTeamName, awayTeamName)
+        assertNotNull(gameDetails)
         assertEquals(Utils.capitalize(homeTeamName), gameDetails.homeTeam)
         assertEquals(Utils.capitalize(awayTeamName), gameDetails.awayTeam)
     }
@@ -108,6 +110,7 @@ class FootballScoreboardTest {
 
         //then
         val gameDetails = scoreboard.getScore(awayTeamName, homeTeamName)
+        assertNotNull(gameDetails)
         assertEquals(homeTeamName, gameDetails.homeTeam)
         assertEquals(awayTeamName, gameDetails.awayTeam)
 
@@ -183,6 +186,16 @@ class FootballScoreboardTest {
     }
 
     @Test
+    fun scoreboardShouldReturnNullWhenGameDoesNotExists() {
+        //given
+        val homeTeamName = "team1"
+        val awayTeamName = "team2"
+
+        //then
+        assertNull(scoreboard.getScore(homeTeamName, awayTeamName))
+    }
+
+    @Test
     fun scoreboardShouldUpdateScore() {
         //given
         val homeTeamName = "Team1"
@@ -195,6 +208,7 @@ class FootballScoreboardTest {
 
         //then
         val gameDetails = scoreboard.getScore(homeTeamName, awayTeamName)
+        assertNotNull(gameDetails)
         assertEquals(0, gameDetails.homeTeamScore)
         assertEquals(homeTeamName, gameDetails.homeTeam)
 
@@ -215,6 +229,7 @@ class FootballScoreboardTest {
 
         //then
         val gameDetails = scoreboard.getScore(homeTeamName, awayTeamName)
+        assertNotNull(gameDetails)
         assertEquals(0, gameDetails.homeTeamScore)
         assertEquals(Utils.capitalize(homeTeamName), gameDetails.homeTeam)
 
@@ -239,16 +254,16 @@ class FootballScoreboardTest {
     @Test
     fun scoreboardShouldReturnGameSummaryByTotalScore() {
         //given
-        val firstMatchHomeTeamName = "team1"
-        val firstMatchAwayTeamName = "team2"
+        val firstMatchHomeTeamName = "Team1"
+        val firstMatchAwayTeamName = "Team2"
         val firstMatchScore = Pair(2, 0)
 
-        val secondMatchHomeTeamName = "team3"
-        val secondMatchAwayTeamName = "team4"
+        val secondMatchHomeTeamName = "Team3"
+        val secondMatchAwayTeamName = "Team4"
         val secondMatchScore = Pair(2, 5)
 
-        val thirdMatchHomeTeamName = "team5"
-        val thirdMatchAwayTeamName = "team6"
+        val thirdMatchHomeTeamName = "Team5"
+        val thirdMatchAwayTeamName = "Team6"
         val thirdMatchScore = Pair(1, 3)
 
         //when

@@ -8,4 +8,8 @@ object Utils {
             .map { name -> name.lowercase().replaceFirstChar { firstChar -> firstChar.uppercase() } }
             .reduce { acc, s -> "$acc $s" }
     }
+
+    fun capitalize(team1Name: String, team2Name:String): Pair<String, String> {
+        return Pair(capitalize(team1Name), capitalize(team2Name))
+    }
 }
